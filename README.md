@@ -62,3 +62,17 @@ Para garantir alta taxa de quadros e não sobrecarregar o processador (CPU) do d
 * **Execução Offline:** O Service Worker faz o cache de todas as dependências locais. Uma vez carregado, o ColorPop funciona perfeitamente sem internet.
 * **Instalável:** Suporta a instalação na tela inicial no Android, iOS, Windows e macOS como um aplicativo nativo.
 * **Segurança Restrita (HTTPS):** Módulos WebAssembly e recursos modernos do navegador exigem um contexto seguro. Portanto, a aplicação requer HTTPS para carregar os modelos de IA.
+
+---
+
+## 🛠️ Desenvolvimento & Contribuição
+
+Desenvolvido com foco em alta performance e privacidade no processamento de imagens.
+
+* 💻 **Desenvolvedor:** [@bersou](https://github.com/bersou)
+* ⚡ **Tecnologias:** JavaScript Vanilla (ES6+), HTML5 Canvas API e CSS3 Custom Properties.
+* 🧠 **IA Pipeline:** Google MediaPipe Selfie Segmentation via WASM.
+* 🎨 **UI/UX:** Design moderno e fluído baseado em Glassmorphism.
+* 📄 **Licença:** MIT
+
+Se este projeto te ajudou ou inspirou, sinta-se à vontade para deixar uma estrela ⭐ no repositório!
