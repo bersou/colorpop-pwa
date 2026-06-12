@@ -1,0 +1,48 @@
+================================================================================
+COLORPOP PWA - RESUMO DE STATUS DO PROJETO & PLANO FUTURO
+================================================================================
+
+Este arquivo serve como guia de referência rápida sobre o progresso atual do projeto
+e as etapas planejadas para quando o desenvolvimento for retomado.
+
+--------------------------------------------------------------------------------
+1. DETALHES DO PROJETO & LINKS UTEIS
+--------------------------------------------------------------------------------
+- Nome do Aplicativo: ColorPop
+- Descricao: Edicao seletiva de fotos mantendo o assunto colorido e fundo P&B.
+- Repositorio GitHub: https://github.com/bersou/colorpop-pwa
+- URL de Producao (Pages): https://bersou.github.io/colorpop-pwa/
+
+--------------------------------------------------------------------------------
+2. O QUE JA FOI IMPLEMENTADO (STATUS ATUAL)
+--------------------------------------------------------------------------------
+- INTERFACE PREMIUM: Layout moderno em modo escuro, glassmorphism, fundo abstrato
+  suave (soft_dark_bg.png) e circulos neon com efeito de flutuacao.
+- INTELIGENCIA ARTIFICIAL: Integracao com o modelo Selfie Segmentation do Google 
+  (MediaPipe) rodando no cliente via WebAssembly (WASM).
+- COMPOSTAGEM GPU: Recorte via "destination-in" (Canvas 2D nativo) garantindo 
+  nitidez perfeita e zero travamento de CPU.
+- AJUSTES DO EFEITO: Sliders de Desfoque de Fundo, Sensibilidade de Recorte (contraste),
+  Saturacao de Fundo e Suavidade da Borda (Feather).
+- PWA COMPLETO: Instalacao nativa habilitada (manifest.json e sw.js offline).
+- ICONES & PREVIEWS: Icone de 512px centralizado sem bordas brancas e banner de
+  compartilhamento Open Graph (og-image.png) configurado.
+- DEPLOY AUTOMATICO: Repositorio criado e hospedado diretamente no GitHub Pages
+  com HTTPS ativo e verificado.
+
+--------------------------------------------------------------------------------
+3. O QUE PODE SER FEITO (PROXIMAS MELHORIAS)
+--------------------------------------------------------------------------------
+- DOMINIO PERSONALIZADO: Comprar e apontar DNS (A/CNAME) no GitHub Pages para
+  ter um link comercial próprio (ex: suaedicao.com.br).
+- COMPARADOR ANTES/DEPOIS: Implementar o slider deslizante vertical na imagem,
+  caso decida reincorporar a funcionalidade de forma mais compacta.
+- FILTROS PARA O FUNDO: Opcoes de efeito Sepia, Monocromia Azulada (Fria) ou
+  Mosaico/Pixelado no plano de fundo.
+- DESFOQUE ARTISTICO: Adicionar desfoques Radiais (efeito zoom) ou de Movimento
+  (Motion Blur) no fundo.
+- ZOOM E PAN: Permitir pinçar/scrollar na foto para inspecionar bordas.
+
+================================================================================
+Fim do Registro. Pronto para prosseguir!
+================================================================================
