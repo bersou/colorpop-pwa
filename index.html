@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorPop - Destaque o Principal</title>
+    
+    <!-- PWA & Favicon -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="theme-color" content="#0b0f19">
+    
+    <!-- Open Graph (Link Preview) Metadata -->
+    <meta property="og:title" content="ColorPop - Destaque o Principal">
+    <meta property="og:description" content="Destaque o elemento principal de qualquer foto automaticamente, mantendo-o colorido e o plano de fundo em preto e branco.">
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MediaPipe Selfie Segmentation -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation/selfie_segmentation.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-decor">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-wand-magic-sparkles logo-icon"></i>
+                <h1>Color<span>Pop</span></h1>
+            </div>
+            <p class="subtitle">Destaque o elemento principal da foto automaticamente, mantendo as cores em destaque e o plano de fundo em preto e branco com qualidade profissional.</p>
+        </header>
+
+        <section class="workspace">
+            <!-- Upload Area -->
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-zone-content">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h2>Arraste sua foto aqui</h2>
+                    <p>ou clique para explorar seus arquivos</p>
+                    <span class="file-limits">Suporta JPG, PNG e WebP</span>
+                </div>
+                <input type="file" id="file-input" accept="image/*" hidden>
+            </div>
+
+            <!-- Editor Area (Hidden by default) -->
+            <div id="editor-zone" class="editor-zone hidden">
+                <div class="preview-container">
+                    <div class="canvas-wrapper">
+                        <canvas id="output-canvas"></canvas>
+                        <div id="processing-overlay" class="processing-overlay hidden">
+                            <div class="spinner"></div>
+                            <p>Analisando imagem com IA...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-panel">
+                    <div class="panel-section">
+                        <h3>Ajustes do Efeito</h3>
+                        
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="blur-slider">Desfoque do Fundo</label>
+                                <span id="blur-value" class="value-badge">0px</span>
+                            </div>
+                            <input type="range" id="blur-slider" min="0" max="20" value="0" step="1">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="threshold-slider">Sensibilidade de Recorte</label>
+                                <span id="threshold-value" class="value-badge">50%</span>
+                            </div>
+                            <input type="range" id="threshold-slider" min="10" max="90" value="50" step="5">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="feather-slider">Suavidade da Borda (Feather)</label>
+                                <span id="feather-value" class="value-badge">5px</span>
+                            </div>
+                            <input type="range" id="feather-slider" min="0" max="15" value="5" step="1">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="saturation-slider">Saturação do Fundo</label>
+                                <span id="saturation-value" class="value-badge">0%</span>
+                            </div>
+                            <input type="range" id="saturation-slider" min="0" max="100" value="0" step="5">
+                        </div>
+                    </div>
+
+                    <div class="panel-section actions">
+                        <button id="btn-reset" class="btn btn-secondary">
+                            <i class="fa-solid fa-arrow-rotate-left"></i> Nova Foto
+                        </button>
+                        <button id="btn-download" class="btn btn-primary">
+                            <i class="fa-solid fa-download"></i> Baixar Imagem
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(err => console.log('SW Registration failed', err));
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

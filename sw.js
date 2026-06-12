@@ -1,0 +1,27 @@
+const CACHE_NAME = 'colorpop-v1';
+const ASSETS = [
+  '.',
+  'index.html',
+  'style.css',
+  'app.js',
+  'manifest.json',
+  'icon.png',
+  'favicon.png',
+  'soft_dark_bg.png'
+];
+
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS);
+    })
+  );
+});
+
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => {
+      return response || fetch(e.request);
+    })
+  );
+});
