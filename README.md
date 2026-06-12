@@ -65,7 +65,7 @@ Para garantir alta taxa de quadros e não sobrecarregar o processador (CPU) do d
 
 ---
 
-## 🛠️ Desenvolvimento & Contribuição
+## 🛠️ Desenvolvimento e Contribuição
 
 Desenvolvido com foco em alta performance e privacidade no processamento de imagens.
 
